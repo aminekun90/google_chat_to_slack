@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         GOOGLE CHAT TO SLACK
 // @namespace
-// @version      0.4
-// @description  long live slack
-//               replaces google chat logo with slack logo I know it's crazy stuff right (^_^)
+// @version      0.5
+// @description  Long live slack
+//               replaces google ugly chat logo with slack logo I know it's crazy stuff right (^_^)
 // @author       @aminekun90
 // @match        https://mail.google.com/chat/*
 // @grant        none
 // @source       https://github.com/aminekun90/google_chat_to_slack
+// @updateURL    https://github.com/aminekun90/google_chat_to_slack/raw/main/google_chat_to_slack.user.js
 // ==/UserScript==
 "use strict";
 
