@@ -4,17 +4,18 @@
 // @version      0.4
 // @description  long live slack
 //               replaces google chat logo with slack logo I know it's crazy stuff right (^_^)
-// @author       @aminekun
+// @author       @aminekun90
 // @match        https://mail.google.com/chat/*
 // @grant        none
+// @source       https://github.com/aminekun90/google_chat_to_slack
 // ==/UserScript==
-'use strict';
+"use strict";
 
-(function() {
-    let enableDarkTheme = false;
-    let update = ()=>{
-        document.title = "Long live Slack";
-        let blackLogo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-74.46 -31.4 645.32 188.4">
+(function () {
+  let enableDarkTheme = false;
+  let update = () => {
+    document.title = "Long live Slack";
+    let blackLogo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-74.46 -31.4 645.32 188.4">
     <g fill="none">
         <path fill="#000"
             d="M158.8 98.9l6.2-14.4c6.7 5 15.6 7.6 24.4 7.6 6.5 0 10.6-2.5 10.6-6.3-.1-10.6-38.9-2.3-39.2-28.9-.1-13.5 11.9-23.9 28.9-23.9 10.1 0 20.2 2.5 27.4 8.2l-5.8 14.7c-6.6-4.2-14.8-7.2-22.6-7.2-5.3 0-8.8 2.5-8.8 5.7.1 10.4 39.2 4.7 39.6 30.1 0 13.8-11.7 23.5-28.5 23.5-12.3 0-23.6-2.9-32.2-9.1m237.9-19.6c-3.1 5.4-8.9 9.1-15.6 9.1-9.9 0-17.9-8-17.9-17.9 0-9.9 8-17.9 17.9-17.9 6.7 0 12.5 3.7 15.6 9.1l17.1-9.5C407.4 40.8 395.1 33 381.1 33c-20.7 0-37.5 16.8-37.5 37.5s16.8 37.5 37.5 37.5c14.1 0 26.3-7.7 32.7-19.2zM228.1 1.9h21.4v104.7h-21.4zm194.1 0v104.7h21.4V75.2l25.4 31.4h27.4l-32.3-37.3L494 34.5h-26.2l-24.2 28.9V1.9zM313.1 79.5c-3.1 5.1-9.5 8.9-16.7 8.9-9.9 0-17.9-8-17.9-17.9 0-9.9 8-17.9 17.9-17.9 7.2 0 13.6 4 16.7 9.2zm0-45V43c-3.5-5.9-12.2-10-21.3-10-18.8 0-33.6 16.6-33.6 37.4 0 20.8 14.8 37.6 33.6 37.6 9.1 0 17.8-4.1 21.3-10v8.5h21.4v-72z" />
@@ -28,7 +29,7 @@
             d="M79.4 99.2c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2z" />
     </g>
 </svg>`;
-        let whiteLogo = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    let whiteLogo = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 viewBox="0 0 622.3 254.4" style="enable-background:new 0 0 622.3 254.4;" xml:space="preserve">
 <style type="text/css">
 .st0{fill:#FFFFFF;}
@@ -72,25 +73,28 @@ s-5.9,13.2-13.2,13.2H142.1z"/>
 </g>
 </g>
 </svg>`;
-        let data = 'data:image/svg+xml;base64,' + btoa(enableDarkTheme ?whiteLogo:blackLogo);
-        let dataWhite = 'data:image/svg+xml;base64,' + btoa(whiteLogo);
-        let logo = document.querySelector("img.gb_rc");
+    let data =
+      "data:image/svg+xml;base64," +
+      btoa(enableDarkTheme ? whiteLogo : blackLogo);
+    let dataWhite = "data:image/svg+xml;base64," + btoa(whiteLogo);
+    let logo = document.querySelector("img.gb_rc");
 
-        let loading = document.querySelector("#loading");
-        if(logo){
-            console.log("DEBUG",logo);
-            logo.srcset = dataWhite;
-            logo.style = "height:60px;cursor:pointer";
-        }
-        if(loading) {
-            Array.from(loading.children).forEach(e=>{e.remove();});
-            //chatLogo.remove();
-            let img = document.createElement("img");
-            img.style = "margin: 200px auto;width: 97%;position:absolute;";
-            img.src = data;
-            loading.prepend(img);
-        }
-    };
-    update();
-    let timeInterval = setInterval(update,1000);
+    let loading = document.querySelector("#loading");
+    if (logo) {
+      console.log("DEBUG", logo);
+      logo.srcset = dataWhite;
+      logo.style = "height:60px;cursor:pointer";
+    }
+    if (loading) {
+      Array.from(loading.children).forEach((e) => {
+        e.remove();
+      });
+      let img = document.createElement("img");
+      img.style = "margin: 200px auto;width: 97%;position:absolute;";
+      img.src = data;
+      loading.prepend(img);
+    }
+  };
+  update();
+  let timeInterval = setInterval(update, 1000);
 })();
