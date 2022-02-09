@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GOOGLE CHAT TO SLACK
 // @namespace
-// @version      0.6
+// @version      0.7
 // @description  Long live slack
 //               replaces google ugly chat logo with slack logo I know it's crazy stuff right (^_^)
 // @author       @aminekun90
@@ -79,7 +79,7 @@ s-5.9,13.2-13.2,13.2H142.1z"/>
       "data:image/svg+xml;base64," +
       btoa(enableDarkTheme ? whiteLogo : blackLogo);
     let dataWhite = "data:image/svg+xml;base64," + btoa(whiteLogo);
-    let logo = document.querySelector("img.gb_sc");
+    let logo = document.querySelector("img.gb_wc");
 
     let loading = document.querySelector("#loading");
     if (logo) {
