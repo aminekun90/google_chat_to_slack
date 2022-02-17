@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         GOOGLE CHAT TO SLACK
 // @namespace
-// @version      0.7
-// @description  Long live slack
-//               replaces google ugly chat logo with slack logo I know it's crazy stuff right (^_^)
+// @version      0.8
+// @description  Long live slack; replaces google ugly chat logo with slack logo I know it's crazy stuff right (^_^)
 // @author       @aminekun90
 // @match        https://mail.google.com/chat/*
 // @grant        none
 // @source       https://github.com/aminekun90/google_chat_to_slack
+// @downloadURL    https://github.com/aminekun90/google_chat_to_slack/raw/main/google_chat_to_slack.user.js
 // @updateURL    https://github.com/aminekun90/google_chat_to_slack/raw/main/google_chat_to_slack.user.js
 // ==/UserScript==
 "use strict";
@@ -16,7 +16,7 @@
   let enableDarkTheme = false;
   let update = () => {
     document.title = "Long live Slack";
-      let coloredLogo = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="112.5 193 407.7 407.7" style="enable-background:new 112.5 193 407.7 407.7;" xml:space="preserve"><style type="text/css">.st0{fill:#E01E5A;}.st1{fill:#36C5F0;}.st2{fill:#2EB67D;}.st3{fill:#ECB22E;}</style><g><g><g> <path class="st0" d="M205.3,447.5c0,22.3-18,40.3-40.3,40.3s-40.3-18-40.3-40.3c0-22.3,18-40.3,40.3-40.3h40.3V447.5z"/> <path class="st0" d="M225.4,447.5c0-22.3,18-40.3,40.3-40.3c22.3,0,40.3,18,40.3,40.3v100.8c0,22.3-18,40.3-40.3,40.3 c-22.3,0-40.3-18-40.3-40.3V447.5z"/> </g> <g> <path class="st1" d="M265.8,285.6c-22.3,0-40.3-18-40.3-40.3c0-22.3,18-40.3,40.3-40.3c22.3,0,40.3,18,40.3,40.3v40.3H265.8z"/> <path class="st1" d="M265.8,306.1c22.3,0,40.3,18,40.3,40.3c0,22.3-18,40.3-40.3,40.3H164.6c-22.3,0-40.3-18-40.3-40.3 c0-22.3,18-40.3,40.3-40.3H265.8z"/> </g> <g> <path class="st2" d="M427.4,346.4c0-22.3,18-40.3,40.3-40.3s40.3,18,40.3,40.3s-18,40.3-40.3,40.3h-40.3V346.4z"/> <path class="st2" d="M407.2,346.4c0,22.3-18,40.3-40.3,40.3s-40.3-18-40.3-40.3V245.3c0-22.3,18-40.3,40.3-40.3 s40.3,18,40.3,40.3V346.4z"/> </g> <g> <path class="st3" d="M366.9,508c22.3,0,40.3,18,40.3,40.3c0,22.3-18,40.3-40.3,40.3s-40.3-18-40.3-40.3V508H366.9z"/> <path class="st3" d="M366.9,487.8c-22.3,0-40.3-18-40.3-40.3c0-22.3,18-40.3,40.3-40.3H468c22.3,0,40.3,18,40.3,40.3 c0,22.3-18,40.3-40.3,40.3H366.9z"/> </g> </g> </g> </svg>`;
+    let coloredLogo = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="112.5 193 407.7 407.7" style="enable-background:new 112.5 193 407.7 407.7;" xml:space="preserve"><style type="text/css">.st0{fill:#E01E5A;}.st1{fill:#36C5F0;}.st2{fill:#2EB67D;}.st3{fill:#ECB22E;}</style><g><g><g> <path class="st0" d="M205.3,447.5c0,22.3-18,40.3-40.3,40.3s-40.3-18-40.3-40.3c0-22.3,18-40.3,40.3-40.3h40.3V447.5z"/> <path class="st0" d="M225.4,447.5c0-22.3,18-40.3,40.3-40.3c22.3,0,40.3,18,40.3,40.3v100.8c0,22.3-18,40.3-40.3,40.3 c-22.3,0-40.3-18-40.3-40.3V447.5z"/> </g> <g> <path class="st1" d="M265.8,285.6c-22.3,0-40.3-18-40.3-40.3c0-22.3,18-40.3,40.3-40.3c22.3,0,40.3,18,40.3,40.3v40.3H265.8z"/> <path class="st1" d="M265.8,306.1c22.3,0,40.3,18,40.3,40.3c0,22.3-18,40.3-40.3,40.3H164.6c-22.3,0-40.3-18-40.3-40.3 c0-22.3,18-40.3,40.3-40.3H265.8z"/> </g> <g> <path class="st2" d="M427.4,346.4c0-22.3,18-40.3,40.3-40.3s40.3,18,40.3,40.3s-18,40.3-40.3,40.3h-40.3V346.4z"/> <path class="st2" d="M407.2,346.4c0,22.3-18,40.3-40.3,40.3s-40.3-18-40.3-40.3V245.3c0-22.3,18-40.3,40.3-40.3 s40.3,18,40.3,40.3V346.4z"/> </g> <g> <path class="st3" d="M366.9,508c22.3,0,40.3,18,40.3,40.3c0,22.3-18,40.3-40.3,40.3s-40.3-18-40.3-40.3V508H366.9z"/> <path class="st3" d="M366.9,487.8c-22.3,0-40.3-18-40.3-40.3c0-22.3,18-40.3,40.3-40.3H468c22.3,0,40.3,18,40.3,40.3 c0,22.3-18,40.3-40.3,40.3H366.9z"/> </g> </g> </g> </svg>`;
     let blackLogo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-74.46 -31.4 645.32 188.4">
     <g fill="none">
         <path fill="#000"
@@ -95,12 +95,16 @@ s-5.9,13.2-13.2,13.2H142.1z"/>
       img.src = data;
       loading.prepend(img);
     }
-      let sideMenuLogoDiv = document.querySelector(".bhZ .CL.su::before, .bhZ:not(.bym) .CL.su .Yh");
-      if(sideMenuLogoDiv){
-      let style = `background-image:url('data:image/svg+xml;base64,${btoa(coloredLogo)}')!important;`;
-          console.log("DEBUG",style);
-          sideMenuLogoDiv.style = style;
-      }
+    let sideMenuLogoDiv = document.querySelector(
+      ".bhZ .CL.su::before, .bhZ:not(.bym) .CL.su .Yh"
+    );
+    if (sideMenuLogoDiv) {
+      let style = `background-image:url('data:image/svg+xml;base64,${btoa(
+        coloredLogo
+      )}')!important;`;
+      console.log("DEBUG", style);
+      sideMenuLogoDiv.style = style;
+    }
   };
   update();
   let timeInterval = setInterval(update, 1000);
